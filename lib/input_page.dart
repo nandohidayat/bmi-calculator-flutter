@@ -252,9 +252,23 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-          Container(
-            height: 80,
-            color: kBottomButtonColor,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/results');
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  'CALCULATE YOUR BMI',
+                  style: kLabelStyle.copyWith(
+                    color: kActiveCardColor,
+                    letterSpacing: 2,
+                  ),
+                ),
+              ),
+              height: 80,
+              color: kBottomButtonColor,
+            ),
           ),
         ],
       ),
