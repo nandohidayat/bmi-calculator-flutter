@@ -16,30 +16,22 @@ class _InputPageState extends State<InputPage> {
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Expanded(
                 flex: 4,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF1D1F33),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                      child: ReusableCard(
+                        color: Color(0xFF1D1F33),
                       ),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: 7,
                     ),
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF1D1F33),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                      child: ReusableCard(
+                        color: Color(0xFF1D1F33),
                       ),
                     ),
                   ],
@@ -50,11 +42,8 @@ class _InputPageState extends State<InputPage> {
               ),
               Expanded(
                 flex: 5,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF0F1427),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+                child: ReusableCard(
+                  color: Color(0xFF0F1427),
                 ),
               ),
               SizedBox(
@@ -63,25 +52,18 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 flex: 5,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF0F1427),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                      child: ReusableCard(
+                        color: Color(0xFF0F1427),
                       ),
                     ),
                     SizedBox(
-                      width: 5,
+                      width: 7,
                     ),
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF0F1427),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                      child: ReusableCard(
+                        color: Color(0xFF0F1427),
                       ),
                     ),
                   ],
@@ -90,6 +72,22 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ReusableCard extends StatelessWidget {
+  ReusableCard({@required this.color});
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(5),
       ),
     );
   }
