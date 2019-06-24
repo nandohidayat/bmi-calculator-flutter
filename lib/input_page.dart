@@ -39,21 +39,19 @@ class _InputPageState extends State<InputPage> {
                     child: Row(
                       children: <Widget>[
                         Expanded(
-                          child: GestureDetector(
+                          child: ReusableCard(
                             onTap: () {
                               setState(() {
                                 selectedGender = Gender.male;
                               });
                             },
-                            child: ReusableCard(
-                              color: topCardColor,
-                              child: IconContent(
-                                icon: FontAwesomeIcons.mars,
-                                color: selectedGender == Gender.male
-                                    ? activeCardColor
-                                    : inactiveCardColor,
-                                text: 'MALE',
-                              ),
+                            color: topCardColor,
+                            child: IconContent(
+                              icon: FontAwesomeIcons.mars,
+                              color: selectedGender == Gender.male
+                                  ? activeCardColor
+                                  : inactiveCardColor,
+                              text: 'MALE',
                             ),
                           ),
                         ),
@@ -61,21 +59,19 @@ class _InputPageState extends State<InputPage> {
                           width: 7,
                         ),
                         Expanded(
-                          child: GestureDetector(
+                          child: ReusableCard(
                             onTap: () {
                               setState(() {
                                 selectedGender = Gender.female;
                               });
                             },
-                            child: ReusableCard(
-                              color: topCardColor,
-                              child: IconContent(
-                                icon: FontAwesomeIcons.venus,
-                                text: 'FEMALE',
-                                color: selectedGender == Gender.female
-                                    ? activeCardColor
-                                    : inactiveCardColor,
-                              ),
+                            color: topCardColor,
+                            child: IconContent(
+                              icon: FontAwesomeIcons.venus,
+                              text: 'FEMALE',
+                              color: selectedGender == Gender.female
+                                  ? activeCardColor
+                                  : inactiveCardColor,
                             ),
                           ),
                         ),
