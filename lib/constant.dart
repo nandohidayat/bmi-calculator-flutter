@@ -19,3 +19,8 @@ const kValueStyle = TextStyle(
   fontWeight: FontWeight.w900,
   color: kActiveCardColor,
 );
+
+const kResultStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+);

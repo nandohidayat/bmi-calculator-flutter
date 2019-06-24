@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constant.dart';
+import 'bottom_button.dart';
+import 'round_icon_button.dart';
 
 enum Gender {
   male,
@@ -30,7 +32,7 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(30.0),
               child: Column(
                 children: <Widget>[
                   Expanded(
@@ -252,50 +254,14 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
           ),
-          GestureDetector(
+          new BottomButton(
+            text: 'CALCULATE YOUR BMI',
             onTap: () {
               Navigator.pushNamed(context, '/results');
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE YOUR BMI',
-                  style: kLabelStyle.copyWith(
-                    color: kActiveCardColor,
-                    letterSpacing: 2,
-                  ),
-                ),
-              ),
-              height: 80,
-              color: kBottomButtonColor,
-            ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({
-    @required this.iconData,
-    @required this.onPressed,
-  });
-
-  final IconData iconData;
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(iconData),
-      onPressed: onPressed,
-      constraints: BoxConstraints.tightFor(
-        width: 65,
-        height: 65,
-      ),
-      shape: CircleBorder(),
-      fillColor: kFloatingButtonColor,
     );
   }
 }
