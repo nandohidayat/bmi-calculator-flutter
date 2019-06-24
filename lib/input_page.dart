@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
-
-const Color bottomCardColor = Color(0xFF0F1427);
-const Color topCardColor = Color(0xFF1D1F33);
-const Color inactiveCardColor = Color(0xFF8E8E99);
-const Color activeCardColor = Color(0xFFFFFFFF);
+import 'constant.dart';
 
 enum Gender {
   male,
@@ -20,6 +16,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.male;
+  int height = 183;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +42,12 @@ class _InputPageState extends State<InputPage> {
                                 selectedGender = Gender.male;
                               });
                             },
-                            color: topCardColor,
+                            color: kTopCardColor,
                             child: IconContent(
                               icon: FontAwesomeIcons.mars,
                               color: selectedGender == Gender.male
-                                  ? activeCardColor
-                                  : inactiveCardColor,
+                                  ? kActiveCardColor
+                                  : kInactiveCardColor,
                               text: 'MALE',
                             ),
                           ),
@@ -65,13 +62,13 @@ class _InputPageState extends State<InputPage> {
                                 selectedGender = Gender.female;
                               });
                             },
-                            color: topCardColor,
+                            color: kTopCardColor,
                             child: IconContent(
                               icon: FontAwesomeIcons.venus,
                               text: 'FEMALE',
                               color: selectedGender == Gender.female
-                                  ? activeCardColor
-                                  : inactiveCardColor,
+                                  ? kActiveCardColor
+                                  : kInactiveCardColor,
                             ),
                           ),
                         ),
@@ -84,7 +81,66 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     flex: 5,
                     child: ReusableCard(
-                      color: bottomCardColor,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'HEIGHT',
+                                style: kLabelStyle,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                textBaseline: TextBaseline.alphabetic,
+                                children: <Widget>[
+                                  Text(
+                                    height.toString(),
+                                    style: kValueStyle,
+                                  ),
+                                  SizedBox(
+                                    width: 2,
+                                  ),
+                                  Text(
+                                    'cm',
+                                    style: kLabelStyle,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  activeTrackColor: kActiveCardColor,
+                                  inactiveTrackColor: kInactiveCardColor,
+                                  thumbColor: kBottomButtonColor,
+                                  overlayColor: kBottomButtonColorOverlay,
+                                  thumbShape: RoundSliderThumbShape(
+                                    enabledThumbRadius: 15,
+                                  ),
+                                  overlayShape: RoundSliderOverlayShape(
+                                    overlayRadius: 28,
+                                  ),
+                                ),
+                                child: Slider(
+                                  value: height.toDouble(),
+                                  max: 220,
+                                  min: 120,
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      height = value.round();
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      color: kBottomCardColor,
                     ),
                   ),
                   SizedBox(
@@ -96,7 +152,7 @@ class _InputPageState extends State<InputPage> {
                       children: <Widget>[
                         Expanded(
                           child: ReusableCard(
-                            color: bottomCardColor,
+                            color: kBottomCardColor,
                           ),
                         ),
                         SizedBox(
@@ -104,7 +160,7 @@ class _InputPageState extends State<InputPage> {
                         ),
                         Expanded(
                           child: ReusableCard(
-                            color: bottomCardColor,
+                            color: kBottomCardColor,
                           ),
                         ),
                       ],
@@ -116,7 +172,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             height: 80,
-            color: Color(0xFFEC4556),
+            color: kBottomButtonColor,
           ),
         ],
       ),

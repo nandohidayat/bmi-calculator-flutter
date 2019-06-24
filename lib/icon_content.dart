@@ -27,7 +27,10 @@ class IconContent extends StatelessWidget {
         Text(
           text,
           style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w600, color: color),
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: color,
+          ),
         )
       ],
     );
